@@ -2,8 +2,6 @@
   cursor: pointer;
   height: 6rem;
   @include menu-btn;
-
- 
 }
 
 .menu-icon-img {
@@ -17,26 +15,26 @@
   padding: 1rem;
 }
 
-
-
-
 .menu-ul {
   isolation: isolate;
   z-index: 50;
-  text-align: center;
+  text-align: right;
   position: absolute;
   width: 25vh;
   top: 3rem;
-  left: -7rem;
+  left: -10rem;
   padding: 0;
   border-radius: 15px;
-  background: $navy;
+  background: $dark-navy;
 }
 
 .menu-li {
   border-bottom: solid 1px rgb(97, 97, 97);
 }
 
+.li-all-centers-menu-link {
+  border: none;
+}
 .menu-link {
   text-transform: uppercase;
   margin: .5rem 0;
@@ -56,6 +54,7 @@
     }
   }
 }
+
 
 .nav-menu {
 

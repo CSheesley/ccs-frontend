@@ -3,18 +3,50 @@
   padding: 4rem .5rem;
 }
 
-.map-area {
-  p {
-    margin-top: 2rem;
-  };
-};
+.center-distance-text {
+  margin: 3rem auto 5rem auto;
+  width: 70%;
+}
 
 .directions-icon {
+  height: 4rem;
+  width: 4rem;
   margin: 0 .5rem;
-  color: $muted-blue;
+  background: $muted-blue;
+  border: 4px solid $muted-blue;
+  border-radius: 10px;
 }
 
 .use-location-btn {
   margin: 5rem;
   border: 2px solid black;
 }
+
+
+.get-directions-heading {
+  margin: 2rem;
+  letter-spacing: 3px;
+  border-bottom: 1px solid $gray;
+}
+
+.directions-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.map-btn-text {
+  color: transparent;
+  margin: 0;
+}
+.map-icon-link {
+  &:focus,
+  &:hover{
+    .directions-icon{
+      border: 4px solid $gold;
+    }
+    .map-btn-text{
+      color: $gold;
+    }
+  }
+}
+
+

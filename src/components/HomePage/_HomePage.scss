@@ -23,17 +23,17 @@
   @include home-text;
   position: relative;
   text-transform: uppercase;
-  color: $white;
-  margin: 5rem 0 10rem 0;
+  color: $gray;
+  margin: 0 0 5rem 0;
   animation-name: fadeIn;
   animation-duration: 5s;
-  text-shadow: $text-shadow 0 .05rem .1rem;
+  text-shadow: $blue 0 .05rem .1rem;
 }
 
 .under-water-span {
   @include font-size(10rem);
   display: block;
-  color: $cream;
+  color: $gray;
   letter-spacing: .75rem;
   text-shadow: $text-shadow 0 .1rem .2rem;
   font-weight: bold;
@@ -42,18 +42,26 @@
 }
 
 .help-hours-heading {
-  color: $gray;
+  @include font-size(1rem);
+  color: $cream;
   @include home-text;
+  margin: .5rem 0;
+}
+
+.home-hours {
+  font-weight: 300;
+  margin: 0 0 1rem 0;
 }
 
 .btn-links-wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 0 0 5rem 0;
+  margin: 0 0 0 0;
 }
 
 .service-desc-p {
+  margin: 5rem 3rem;
   line-height: 1.6;
   max-width: 600px;
 }
@@ -87,20 +95,27 @@
 }
 
 .ccs-link-footer {
-  transition: transform 0.3s linear;
-
-  &:hover,
-  &:focus {
-    color: $white;
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
-  } 
-}
-
-.ccs-link-footer {
   width: 100%;
   height: 100%;
+  padding: 1rem;
+  transition: transform 0.3s linear;
+  outline: none;
+  &:focus {
+    .ccs-logo-img {
+      border: 4px solid $gold;
+      border-radius:  10px;
+    }
+    
+  }
+  
+  &:hover,
+  &:focus {
+      .ccs-logo-img {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+  }
 }
 
 .ccs-logo-img {
@@ -108,4 +123,5 @@
   transition: transform 0.3s linear;
   height: 12rem;
   margin: 5rem;
+  padding: 1rem;
 }

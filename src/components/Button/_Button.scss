@@ -33,17 +33,26 @@
 
 .small {
   transition: all 0.3s ease;
-  align-self: center;
-  @include menu-btn;
+
+  &:hover:before,
+  &:focus:before,
+  &:active:before {
+    border: $gold solid 4px;
+    border-radius: 15px;
+  }
+
   &:hover,
   &:focus {
     color: $white;
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
+    margin: 0;
+    padding: .2rem 0 .2rem .5rem;
   }
 }
 
+.call-btn {}
 
 @keyframes fadeIn {
   0% {

@@ -20,19 +20,22 @@ export const HomePage = () => (
       </span>
     </h2>
     <h3 className="help-hours-heading">
-        no-cost, confidential
-      {' '}
+      Select an option to get
       <br />
-      <strong>help is available 24/7</strong>
+      no cost, confidential help
+      <strong> NOW</strong>
     </h3>
     <nav
-      aria-label="Links to access help"
+      aria-label="Three ways to access help right now:"
       className="btn-links-wrapper"
     >
       <Button kind="call" size="large" />
       <Button kind="text" size="large" />
       <Button kind="walk-in" size="large" />
     </nav>
+    <h4 className="home-hours help-hours-heading">
+      All services available 24/7/365
+    </h4>
     <p
       className="service-desc-p"
       role="complementary"
@@ -82,12 +85,12 @@ export const HomePage = () => (
       >
           All Walk-In Centers
       </NavLink>
-      <NavLink
+      {/* <NavLink
         className="dev-team-link footer-link btn"
         to="/more-info"
       >
           Development Team
-      </NavLink>
+      </NavLink> */}
     </footer>
   </main>
 );

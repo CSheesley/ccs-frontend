@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { fetchLocationsCall } from '../../utils/apiCalls/fetchLocationsCall';
 import { Loader } from '../Loader';
-import PropTypes from 'prop-types'
 
 const Modal = (props) => {
   const [streetAddress, setStreetAddress] = useState('');
@@ -17,14 +17,14 @@ const Modal = (props) => {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }, []);
 
   const fetchUsingAddress = async (e) => {
     e.preventDefault();
     try {
       setIsLoading(true);
-      const apiKey = process.env.REACT_APP_API_KEY
+      const apiKey = process.env.REACT_APP_API_KEY;
       const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${streetAddress.split(' ').join('+')},+${city.split(' ').join('+')},+CO&key=${apiKey}`;
       const response = await fetchLocationsCall(url);
       const { lat, lng } = response.results[0].geometry.location;
@@ -36,48 +36,55 @@ const Modal = (props) => {
 
   const getUserLocation = () => {
     setIsLoading(true);
-    window.navigator.geolocation.getCurrentPosition(position =>
-      setUserLocation([position.coords.latitude, position.coords.longitude]));
+    window.navigator.geolocation.getCurrentPosition(position => setUserLocation([position.coords.latitude, position.coords.longitude]));
   };
 
   return (
     <article className="modal">
       {
         isLoading
-        &&
-        <Loader />
+        && <Loader />
       }
       {
         !isLoading
-        &&
+        && (
         <>
           <button
             className="modal-btn use-loc-btn btn"
             type="button"
-            autoFocus
             onClick={getUserLocation}
           >
-            USE CURRENT LOCATION
-            <img alt="current location icon" className="button-icon icon-current-location" src={require("../../assets/images/icons/get-location.svg")}/>
+            Use Current Location
+            <img
+              alt="current location icon"
+              aria-hidden="true"
+              className="btn-icon icon-current-location svg-icon"
+              src={require('../../assets/images/icons/get-location.svg')}
+            />
           </button>
           <button
-              className="modal-btn enter-address-btn btn"
-              type="button"
-              onClick={() => setCanEnterAddress(!canEnterAddress)}
-            >
+            className="modal-btn enter-address-btn btn"
+            type="button"
+            onClick={() => setCanEnterAddress(!canEnterAddress)}
+          >
               Enter Address
-              <img alt="enter address icon" className="button-icon" src={require("../../assets/images/icons/location.svg")}/>
+            <img
+              aria-hidden="true"
+              alt="enter address svg-icon"
+              className="btn-icon svg-icon"
+              src={require('../../assets/images/icons/location.svg')}
+            />
           </button>
           {
             canEnterAddress
-            &&
+            && (
             <form className="address-form" onSubmit={fetchUsingAddress}>
+
               <label htmlFor="street-address">Street Address</label>
               <input
                 name="street-address"
                 className="modal-input street-input"
                 type="text"
-                autoFocus={true}
                 placeholder="Street Address"
                 autoComplete="shipping street-address"
                 onChange={e => setStreetAddress(e.target.value)}
@@ -107,14 +114,16 @@ const Modal = (props) => {
                 Submit
               </button>
             </form>
+            )
           }
           <NavLink
-            className="back-btn btn"
+            className="back-btn btn modal-btn"
             to="/"
           >
             Go Back
           </NavLink>
         </>
+        )
       }
     </article>
   );
@@ -124,4 +133,4 @@ export default Modal;
 
 Modal.propTypes = {
   userLocation: PropTypes.object
-}
+};

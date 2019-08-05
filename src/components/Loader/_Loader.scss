@@ -3,12 +3,11 @@ $c2: rgb(92, 92, 95);
 $c3: rgb(49, 101, 160);
 
 body {
-  height: 100vh;
+  // height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  overflow: hidden;
+  // overflow: hidden;
 }
 .icon-spinner {
   filter: saturate(3);

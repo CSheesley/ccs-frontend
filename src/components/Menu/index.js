@@ -1,6 +1,6 @@
 import React from 'react';
-import { 
-Wrapper, Button, Menu, MenuItem 
+import {
+  Wrapper, Button, Menu, MenuItem
 } from 'react-aria-menubutton';
 import { NavLink } from 'react-router-dom';
 import MenuIcon from '../../assets/images/icons/menu.svg';
@@ -9,7 +9,7 @@ import { menuItemText } from '../../utils/text';
 
 const MenuButton = () => {
   const menuItems = menuItemText.map((item, i) => (
-    <li className="menu-li" key={i}>
+    <li className={`li-${item.class} menu-li`} key={item.path}>
       <MenuItem className={item.class}>
         <NavLink
           className={`nav-menu nav-${item.class}`}

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import Atlas from '../Atlas';
 import Modal from '../Modal';
@@ -9,7 +10,7 @@ const MapPage = () => {
 
   useEffect(
     () => {
-      if(userLocation.length) {
+      if (userLocation.length) {
         fetchLocations();
       }
     },
@@ -36,35 +37,88 @@ const MapPage = () => {
     <main className="map-page">
       {
         !closestLocation.lat
-        &&
-        <Modal userLocation={{ userLocation: [userLocation, setUserLocation] }} />
+        && <Modal userLocation={{ userLocation: [userLocation, setUserLocation] }} />
       }
       {
         closestLocation.lat
-        &&
-        <article className="map-area">
-          <map>
+        && (
+<article className="map-area">
+          <map className="map-wrapper">
             <Atlas userLocation={userLocation} closestLocation={closestLocation} />
           </map>
-          <p>{closestLocation.name} is {closestLocation.miles} miles away</p>
-          <h3>GET DIRECTIONS</h3>
-          <a href={drivingUrl} target="_blank" rel="noopener noreferrer">
-            <img className="svg-icon directions-icon car-icon" src={require("../../assets/images/icons/car.svg")} alt="driving directions"/>
+          <p className="center-distance-text">
+{closestLocation.name}
+{' '}
+is
+{' '}
+{closestLocation.miles}
+{' '}
+miles away
+          </p>
+          <h3 className="get-directions-heading">GET DIRECTIONS:</h3>
+        <div className="directions-wrapper">
+          <a 
+            className="map-icon-link" 
+            href={drivingUrl} 
+            target="_blank" 
+            rel="noopener noreferrer">
+            <img 
+              className="svg-icon directions-icon car-icon" 
+              src={require('../../assets/images/icons/car.svg')} 
+              alt="car directions link"
+              aria-label="Driving Directions" />
+            <p role="description" className="map-btn-text">
+              DRIVE
+            </p>
           </a>
-          <a href={walkingUrl} target="_blank" rel="noopener noreferrer">
-            <img className="svg-icon directions-icon walk-icon" src={require("../../assets/images/icons/walk.svg")} alt="walking directions"/>
+          <a 
+            className="map-icon-link" 
+            href={walkingUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="Walking Directions">
+            <img 
+              className="svg-icon directions-icon walk-icon" 
+              src={require('../../assets/images/icons/walk.svg')}
+              alt="walking directions link" />
+            <p role="description" className="map-btn-text">
+              WALK
+            </p>
           </a>
-          <a href={bikingUrl} target="_blank" rel="noopener noreferrer">
-            <img className="svg-icon directions-icon bike-icon" src={require("../../assets/images/icons/bike.svg")} alt="biking directions"/>
+          <a 
+            className="map-icon-link" 
+            href={bikingUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="Biking Directions">
+            <img 
+              className="svg-icon directions-icon bike-icon" 
+              src={require('../../assets/images/icons/bike.svg')} 
+              alt="biking directions link" />
+              <p role="description" className="map-btn-text">
+              BIKE
+            </p>
           </a>
-          <a href={transitUrl} target="_blank" rel="noopener noreferrer">
-            <img className="svg-icon directions-icon bus-icon"src={require("../../assets/images/icons/bus.svg")} alt="public transit directions"/>
+          <a 
+            className="map-icon-link"
+            href={transitUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="Public Transit Directions">
+            <img 
+            className="svg-icon directions-icon bus-icon" 
+            src={require('../../assets/images/icons/bus.svg')} 
+            alt="public transit directions link" />
+            <p role="description" className="map-btn-text">
+             TRANSIT
+            </p>
           </a>
-        </article>
+      </div>
+</article>
+        )
       }
     </main>
   );
 };
 
 export default MapPage;
-

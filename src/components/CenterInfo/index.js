@@ -1,23 +1,38 @@
 import React from 'react';
-import logos from '../../assets/images/center-logos';
 import PropTypes from 'prop-types';
 
-// import Logo from '../../assets/images/wheatridge-logo.png';
 const CenterInfo = (props) => {
+  console.log(props);
   const {
-    name, website, logo
+    name,
+    website,
+    logo,
+    address,
+    phone,
+    city
   } = props;
+
+  const queryParams = address && `${address.street.split(' ').join('+')}+${address.zip}`;
+
+  const phoneNum = (num) => {
+    const cleaned = (`${num}`).replace(/\D/g, '');
+    const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+      return `(${match[1]}) ${match[2]}-${match[3]}`;
+    }
+    return null;
+  };
+
+
   return (
     <article className="center-card">
-      <header>
+      <header className="card-header">
         <img
           src={logo}
           alt="Center logo"
           className="cover-image"
         />
-        <div className="hours">
-        24/7
-        </div>
+
       </header>
       <main className="card-main">
         <h3 className="center-name">
@@ -31,48 +46,38 @@ const CenterInfo = (props) => {
             className="address-block"
             href="tel:3034250300"
           >
-            (303)-425-0300
-          </a>
-          <h4 className="link-heading addr">
-          website:
-          </h4>
-          <a
-            className="address-block link"
-            target="_blank"
-            rel="noopener noreferrer"
-            href={website}
-          >
-            {website}
+            {phoneNum(phone)}
           </a>
           <h4 className="address-heading addr">
           address:
           </h4>
-          <ul className="address-ul address-block">
-            <li className="address-li">
-            4643 Wadsworth Blvd
-            </li>
-            <li className="address-li">
-            Wheat Ridge, CO 80033
-            </li>
-          </ul>
+          <a href={`https://www.google.com/maps/search/?api=1&query=${queryParams}`} target="_blank" rel="noopener noreferrer">
+            {address !== undefined && (
+              <ul className="address-ul address-block" aria-label="center address">
+                <li>{address.street}</li>
+                <li>{`${address.city}, CO ${address.zip}`}</li>
+              </ul>
+            )
+            }
+          </a>
         </address>
       </main>
       <a
         className="map-link"
-        href="https://www.jcmh.org/"
+        href={website}
       >
-        view on map
+        visit their site
       </a>
     </article>
   );
 };
-export default CenterInfo;
-
 CenterInfo.propTypes = {
   city: PropTypes.string,
   name: PropTypes.string,
   website: PropTypes.string,
   logo: PropTypes.string
-}
+};
+export default CenterInfo;
 
-
+// `https://www.google.com/maps/dir/?api=1&origin=${userLocation[0]},${userLocation[1]}&destination=${closestLocation.lat},${closestLocation.lng}&travelmode=driving`;
+// `https://www.google.com/maps/search/?api=1&query=${address.lat},{address.lng}`

@@ -7,7 +7,7 @@ describe('Modal', () => {
   let wrapper;
 
   it('should match the snapshot', () => {
-    wrapper = shallow(<Modal userLocation={{ userLocation: [] }}/>);
+    wrapper = shallow(<Modal userLocation={{ userLocation: [] }} />);
     expect(wrapper).toMatchSnapshot();
   });
 });

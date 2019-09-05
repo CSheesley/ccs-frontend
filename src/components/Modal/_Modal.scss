@@ -7,13 +7,12 @@
   border-radius: 15px;
 
   label {
-    // margin-top: .1rem;
     color: transparent;
   }
 
   input {
-    margin-bottom: .25rem;
-    padding: .5rem;
+    margin-bottom: 0.25rem;
+    padding: 0.5rem;
     font-size: 1.25rem;
     border-radius: 5px;
   }
@@ -27,30 +26,27 @@
   display: flex;
   flex-direction: column;
   border: dotted 2px $gray;
-  padding: 1rem .5rem;
+  padding: 1rem 0.5rem;
   border-radius: 15px;
   margin-top: 1rem;
 }
-
-
 
 .modal-btn {
   width: 100%;
   max-width: 400px;
   min-width: 240px;
-  margin: .5rem .25rem;
+  margin: 0.5rem 0.25rem;
   font-size: 1.25rem;
   font-weight: bold;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   line-height: 1;
   display: flex;
   align-self: center;
-  padding: .5rem 2rem;
-  background: $muted-blue;
-  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background: $blue;
+  justify-content: space-between;
   border-radius: 15px;
-
-  // background-image: linear-gradient(-225deg, $muted-blue 25%, $blue 75%);
   &:hover,
   &:focus {
     background: $white;
@@ -61,7 +57,7 @@
   &:focus:before,
   &:active:before {
     border-radius: 15px;
-    border: $gold solid 4px;
+    border: $focus-ring;
   }
 }
 
@@ -69,13 +65,13 @@
   width: 100%;
   max-width: 400px;
   min-width: 240px;
-  margin: 2rem .25rem .5rem .25rem;
+  margin: 2rem 0.25rem 0.5rem 0.25rem;
   font-size: 1.75rem;
   font-weight: bold;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
   display: flex;
   align-self: center;
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
   background: $gold;
   justify-content: space-around;
 
@@ -89,8 +85,6 @@
   &:hover:before,
   &:focus:before,
   &:active:before {
-    border: $gold solid 4px;
+    border: $focus-ring;
   }
 }
-
-  

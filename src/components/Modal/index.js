@@ -13,7 +13,7 @@ const Modal = (props) => {
   const {
     userLocation: [userLocation, setUserLocation]
   } = {
-    ...(props.userLocation)
+    ...props.userLocation
   };
 
   useEffect(() => {
@@ -25,12 +25,14 @@ const Modal = (props) => {
     try {
       setIsLoading(true);
       const apiKey = process.env.REACT_APP_API_KEY;
-      const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${streetAddress.split(' ').join('+')},+${city.split(' ').join('+')},+CO&key=${apiKey}`;
+      const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${streetAddress
+        .split(' ')
+        .join('+')},+${city.split(' ').join('+')},+CO&key=${apiKey}`;
       const response = await fetchLocationsCall(url);
       const { lat, lng } = response.results[0].geometry.location;
       setUserLocation([lat, lng]);
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
 
@@ -41,19 +43,10 @@ const Modal = (props) => {
 
   return (
     <article className="modal">
-      {
-        isLoading
-        && <Loader />
-      }
-      {
-        !isLoading
-        && (
+      {isLoading && <Loader />}
+      {!isLoading && (
         <>
-          <button
-            className="modal-btn use-loc-btn btn"
-            type="button"
-            onClick={getUserLocation}
-          >
+          <button className="modal-btn use-loc-btn btn" type="button" onClick={getUserLocation}>
             Use Current Location
             <img
               alt="current location icon"
@@ -67,7 +60,7 @@ const Modal = (props) => {
             type="button"
             onClick={() => setCanEnterAddress(!canEnterAddress)}
           >
-              Enter Address
+            Enter Address
             <img
               aria-hidden="true"
               alt="enter address svg-icon"
@@ -75,56 +68,54 @@ const Modal = (props) => {
               src={require('../../assets/images/icons/location.svg')}
             />
           </button>
-          {
-            canEnterAddress
-            && (
+          {canEnterAddress && (
             <form className="address-form" onSubmit={fetchUsingAddress}>
-
-              <label htmlFor="street-address">Street Address</label>
-              <input
-                name="street-address"
-                className="modal-input street-input"
-                type="text"
-                placeholder="Street Address"
-                autoComplete="shipping street-address"
-                onChange={e => setStreetAddress(e.target.value)}
-              />
-              <label htmlFor="zip-code">ZIP Code</label>
-              <input
-                name="zip-code"
-                className="modal-input zip-input"
-                type="number"
-                placeholder="ZIP"
-                autoComplete="shipping postal-code"
-                onChange={e => setZipCode(e.target.value)}
-              />
-              <label htmlFor="city">City</label>
-              <input
-                name="city"
-                className="modal-input city-input"
-                type="text"
-                placeholder="City"
-                autoComplete="shipping locality"
-                onChange={e => setCity(e.target.value)}
-              />
-              <button
-                type="submit"
-                className="modal-btn submit-btn btn"
-              >
+              <label htmlFor="street-">
+                Street Address
+                <input
+                  id="street-"
+                  name="street-address"
+                  className="modal-input"
+                  type="text"
+                  placeholder="Street Address"
+                  autoComplete="shipping street-address"
+                  onChange={e => setStreetAddress(e.target.value)}
+                />
+              </label>
+              <label htmlFor="zip-input">
+                ZIP Code
+                <input
+                  id="zip-input"
+                  name="zip-code"
+                  className="modal-input"
+                  type="number"
+                  placeholder="ZIP"
+                  autoComplete="shipping postal-code"
+                  onChange={e => setZipCode(e.target.value)}
+                />
+              </label>
+              <label htmlFor="city-input">
+                City
+                <input
+                  id="city-input"
+                  name="city"
+                  className="modal-input"
+                  type="text"
+                  placeholder="City"
+                  autoComplete="shipping locality"
+                  onChange={e => setCity(e.target.value)}
+                />
+              </label>
+              <button type="submit" className="modal-btn submit-btn btn">
                 Submit
               </button>
             </form>
-            )
-          }
-          <NavLink
-            className="back-btn btn modal-btn"
-            to="/"
-          >
+          )}
+          <NavLink className="back-btn btn modal-btn" to="/">
             Go Back
           </NavLink>
         </>
-        )
-      }
+      )}
     </article>
   );
 };

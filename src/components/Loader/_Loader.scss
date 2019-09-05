@@ -2,13 +2,12 @@ $c1: #114357;
 $c2: rgb(92, 92, 95);
 $c3: rgb(49, 101, 160);
 
-body {
-  // height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // overflow: hidden;
+.quote-text {
+  font-size: 24px;
+  line-height: 1.6;
+  max-width: 600px;
 }
+
 .icon-spinner {
   filter: saturate(3);
   width: 0.1px;
@@ -24,12 +23,13 @@ body {
   z-index: -1;
   margin-left: -40px;
   margin-top: -40px;
-  content:'';
-  height:0.1;
-  width:0.1;
+  content: '';
+  height: 0.1;
+  width: 0.1;
   border: 40px solid transparent;
   border-radius: 5px;
-  animation: loader 2s ease-in infinite reverse, spin 0.8s linear infinite reverse;
+  animation: loader 2s ease-in infinite reverse,
+    spin 0.8s linear infinite reverse;
 }
 .icon-spinner::after {
   display: block;
@@ -37,20 +37,39 @@ body {
   z-index: 2;
   margin-left: -10px;
   margin-top: -10px;
-  content:'';
-  height:20px;
-  width:20px;
+  content: '';
+  height: 20px;
+  width: 20px;
   border-radius: 20px;
-  background-color: white;
+  background-color: $white;
 }
 @keyframes loader {
-  0% {border-bottom-color:transparent;border-top-color:$c1}
-  25% {border-left-color:transparent;border-right-color:$c2}
-  50% {border-top-color:transparent;border-bottom-color:$c3}
-  75% {border-right-color:transparent;border-left-color:$c2}
-  100% {border-bottom-color:transparent;border-top-color:$c1}
+  0% {
+    border-bottom-color: transparent;
+    border-top-color: $c1;
+  }
+  25% {
+    border-left-color: transparent;
+    border-right-color: $c2;
+  }
+  50% {
+    border-top-color: transparent;
+    border-bottom-color: $c3;
+  }
+  75% {
+    border-right-color: transparent;
+    border-left-color: $c2;
+  }
+  100% {
+    border-bottom-color: transparent;
+    border-top-color: $c1;
+  }
 }
 @keyframes spin {
-  0% {transform: rotate(0deg)}
-  100% {transform: rotate(-360deg)}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Center from '../CenterInfo';
-import centerInfo from '../../utils/centerExtras';
 import { fetchLocationsCall } from '../../utils/apiCalls/fetchLocationsCall';
 
 
@@ -33,7 +32,9 @@ export const AllCentersPage = () => {
       <h2 className="all-centers-heading">
         Walk-In Crisis Centers
       </h2>
-      <p className="center-hours" role="description">All locations are open 24 hours a day, 7 days a week, 365 days a year.</p>
+      <p className="center-hours">
+        All locations are open 24 hours a day, 7 days a week, 365 days a year.
+      </p>
       {centers}
     </main>
   );

@@ -6,15 +6,15 @@
   width: 85%;
   max-width: 400px;
   min-width: 240px;
-  margin: .5rem .25rem;
+  margin: 0.5rem 0.25rem;
   font-size: 2rem;
   font-weight: bold;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
   display: flex;
   justify-content: space-between;
-  border-radius: 50px;
+  border-radius: $oval;
   align-self: center;
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
   background: $muted-blue;
 
   &:hover,
@@ -26,33 +26,47 @@
   &:hover:before,
   &:focus:before,
   &:active:before {
-    border: $gold solid 4px;
-    border-radius: 50px;
+    border: $focus-ring;
+    border-radius: $oval;
   }
 }
 
 .small {
+  text-align: center;
+  position: relative;
   transition: all 0.3s ease;
-
-  &:hover:before,
   &:focus:before,
   &:active:before {
-    border: $gold solid 4px;
-    border-radius: 15px;
+    .phone-icon {
+      border: $focus-ring;
+      border-radius: 15px;
+    }
   }
 
   &:hover,
   &:focus {
-    color: $white;
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
-    margin: 0;
-    padding: .2rem 0 .2rem .5rem;
+    .phone-icon {
+      -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+  }
+  &:focus {
+    .phone-icon {
+      border: $focus-ring;
+      border-radius: 15px;
+      height: 3rem;
+      width: 3rem;
+      margin: 0.4rem;
+      padding: 0.3rem;
+    }
   }
 }
 
-.call-btn {}
+.phone-icon {
+  @include outline-out;
+  transition: transform 0.3s ease;
+}
 
 @keyframes fadeIn {
   0% {

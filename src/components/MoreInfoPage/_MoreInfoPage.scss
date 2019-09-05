@@ -1,6 +1,5 @@
-.faq-container {
+.more-info-section {
   background: $muted-blue;
-  color: $navy;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,42 +7,138 @@
   margin-top: 4rem;
 }
 
+.more-info-page-heading {
+  @include page-heading;
+}
+
+.learn-article {
+  width: 100%;
+}
+
+.more-info-section,
+.questions-wrapper,
+.learn-article {
+  position: relative;
+}
+
+.reasons-ul,
+.questions-wrapper {
+  width: 100%;
+  @include tablet-up {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0 1rem;
+  }
+}
+
+.reasons-li {
+  margin: 0.5rem 1rem;
+  list-style: circle;
+}
+
 .faq-question {
-  font-size: 24px;
+  width: 100%;
+  margin: 0.5rem auto;
+  font-size: inherit;
   cursor: pointer;
   color: $navy;
-  width: 90%;
-  text-transform: lowercase;
+  background: $white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  letter-spacing: 1px;
+  font-weight: bold;
   &:hover {
-    color: $white;
+    background: $gold;
   }
   &:first-letter {
     text-transform: uppercase;
   }
 }
 
-.faq-question::before {content: "•"; color: hsl(0, 0%, 0%)};
+.faq-question::before {
+  content: '>  ';
+  font-weight: bold;
+  font-size: 1.5rem;
+}
 
 .answer-modal {
-  color: hsl(203, 52%, 19%);
-  width: 80%;
-  border-radius: 6px;
+  color: $dark-navy;
+  width: 90%;
+  border-radius: $rounded-corners;
+  border: 2px solid $dark-navy;
   z-index: 5;
-  padding: 20px;
+  padding: 1.5rem;
   position: absolute;
-  background: white;
+  top: 0;
+  background: $cream;
   line-height: 1.4;
 }
 
+.close-answer-btn,
+.answer-heading {
+  display: inline;
+}
 
-
-.x-button {
-  height: 20px;
-  width: 20px;
+.close-answer-btn {
+  text-align: left;
   cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  margin: 0.5rem;
+  padding: 0;
+  background: none;
+  border: none;
   position: absolute;
   top: 0;
   right: 0;
+  outline: none;
+  &:hover {
+    .x-icon {
+      margin: 0.1rem;
+      background: $blue;
+    }
+  }
+  &:focus {
+    .x-icon {
+      margin: 0.1rem;
+      background: $blue;
+    }
+    border: $focus-ring;
+    border-radius: $oval;
+  }
+}
+
+.x-icon {
+  height: 1.25rem;
+  width: 1.25rem;
   z-index: 5;
-  margin: 10px;
+  margin: 0;
+  padding: 3px;
+  background: $dark-navy;
+  border-radius: $oval;
+}
+
+.resources-li {
+  list-style: circle;
+  margin: 0 2rem;
+}
+
+.resource-directory-text {
+  background: $cream;
+  border-radius: $rounded-corners;
+  color: $navy;
+  padding: 1rem;
+  width: 75%;
+  margin: 2rem auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.more-info-heading {
+  background: $navy;
+  width: 100%;
+  padding: 1rem;
+  border-radius: $rounded-corners;
+  text-transform: uppercase;
 }

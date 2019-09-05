@@ -3,16 +3,13 @@
   height: 100%;
   width: 100%;
   font-family: 'Fira Sans', sans-serif;
-  // background-image: linear-gradient(to bottom, $gray, $blue, #38a6bc, #285c72, #234f64, #1d4256, #183648, #183648, #183648, #061c29, #000000);
 }
-
 
 .svg-icon {
   position: relative;
-  // top: .125rem;
   flex-shrink: 0;
   height: 2rem;
   width: 2rem;
   fill: currentColor;
-  transition: fill .3s;
+  transition: fill 0.3s;
 }

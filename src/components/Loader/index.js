@@ -5,13 +5,11 @@ export const Loader = () => {
   const fredRogersQuote = fredRogersQuotes[Math.floor(Math.random() * fredRogersQuotes.length)];
   return (
     <article className="loader">
-      <h1 className="loader-text">
-        Loading...
-      </h1>
-      <p>
-        Mr. Rodgers:
-        {' '}
+      <h2 className="loader-text">Loading...</h2>
+      <p className="quote-text">
         {fredRogersQuote}
+        {' '}
+        <strong> -Fred Rogers</strong>
       </p>
       <div className="icon-spinner" />
     </article>

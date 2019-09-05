@@ -11,15 +11,8 @@
 }
 
 .all-centers-heading {
-  @include font-size(5rem);
-  // color: $cream;
-  margin: 5rem 3rem 1rem 3rem;
-  letter-spacing: .3rem;
-  text-shadow: $blue 0 .05rem .1rem;
-  text-align: center;
+  @include page-heading;
 }
-
-
 
 .center-city-heading {
   margin: 0;

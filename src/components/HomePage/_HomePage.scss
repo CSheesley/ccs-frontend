@@ -1,5 +1,6 @@
 .home-page {
   @include page-component;
+  // width
 }
 
 .water-img {
@@ -13,8 +14,7 @@
 
 .home-heading,
 .help-hours-heading,
-.btn-wrapper,
-.service-desc-p {
+.btn-wrapper {
   width: 90%;
 }
 
@@ -27,15 +27,15 @@
   margin: 0 0 5rem 0;
   animation-name: fadeIn;
   animation-duration: 5s;
-  text-shadow: $blue 0 .05rem .1rem;
+  text-shadow: $blue 0 0.05rem 0.1rem;
 }
 
 .under-water-span {
   @include font-size(10rem);
   display: block;
   color: $gray;
-  letter-spacing: .75rem;
-  text-shadow: $text-shadow 0 .1rem .2rem;
+  letter-spacing: 0.75rem;
+  text-shadow: $text-shadow 0 0.1rem 0.2rem;
   font-weight: bold;
   animation-name: fadeIn;
   animation-duration: 7s;
@@ -45,7 +45,7 @@
   @include font-size(1rem);
   color: $cream;
   @include home-text;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
 .home-hours {
@@ -61,25 +61,28 @@
 }
 
 .service-desc-p {
-  margin: 5rem 3rem;
+  width: 85%;
+  margin: 5rem 0 2rem 0;
   line-height: 1.6;
   max-width: 600px;
 }
 
 .inline-link {
   color: $blue;
-  text-decoration: none;
   padding: 0 5px;
   cursor: pointer;
+  &:focus {
+    outline: $gold auto 4px;
+  }
 }
 
 .footer-link {
   display: block;
   border: 1px solid $muted-blue;
-  border-radius: 50px;
+  border-radius: $oval;
   color: $blue;
-  padding: .25rem;
-  margin: .75rem 2rem;
+  padding: 0.25rem;
+  margin: 0.75rem 2rem;
 
   &:hover,
   &:focus {
@@ -90,7 +93,7 @@
   &:focus:before,
   &:active:before {
     border: $gold solid 2px;
-    border-radius: 50px;
+    border-radius: $oval;
   }
 }
 
@@ -102,19 +105,18 @@
   outline: none;
   &:focus {
     .ccs-logo-img {
-      border: 4px solid $gold;
-      border-radius:  10px;
+      border: $focus-ring;
+      border-radius: 10px;
     }
-    
   }
-  
+
   &:hover,
   &:focus {
-      .ccs-logo-img {
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
-      }
+    .ccs-logo-img {
+      -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      transform: scale(1.1);
+    }
   }
 }
 
@@ -122,6 +124,6 @@
   z-index: 15;
   transition: transform 0.3s linear;
   height: 12rem;
-  margin: 5rem;
+  margin: 5rem auto 0 auto;
   padding: 1rem;
 }
